@@ -19,13 +19,14 @@ except:
 
 client = discord.Client()
 
-agents = ["Astra", "Breach", "Brimstone", "Chamber", "Cypher", "Jett", "KAY/O",
+agents = ["Astra", "Breach", "Brimstone", "Chamber", "Cypher", "Fade","Jett", "KAY/O",
           "Killjoy", "Neon", "Omen", "Phoenix", "Raze", "Reyna", "Sage", "Skye",
           "Sova", "Viper", "Yoru"]
 
 maps = ["Ascent", "Bind", "Breeze", "Fracture", "Haven", "Icebox", "Split", "Pearl"]
 
-emotes = ["<:astra:958420104490663986>","<:breach:958420500839804938>","<:brimstone:958420774736252948>","<:chamber:958421177422983239>","<:cypher:958425821578682378>","<:jett:958426375168073809>","<:kayo:958426726822727711>","<:killjoy:958427157539983440>","<:neon:958427417528131624>","<:omen:958427990029660230>","<:phoenix:958428146330374164>","<:raze:958428251485782046>","<:reyna:958428346428059648>","<:sage:958428493211902003>","<:skye:958428627517730876>","<:sova:958429598989811812>","<:viper:958429995989086238>","<:yoru:958430128977895504>", "<:atk:960403431837802496>","<:def:960367760574128151>"]
+emotes = ["<:astra:958420104490663986>","<:breach:958420500839804938>","<:brimstone:958420774736252948>","<:chamber:958421177422983239>","<:cypher:958425821578682378>", "<:fade:993989578455261244>",
+"<:jett:958426375168073809>","<:kayo:958426726822727711>","<:killjoy:958427157539983440>","<:neon:958427417528131624>","<:omen:958427990029660230>","<:phoenix:958428146330374164>","<:raze:958428251485782046>","<:reyna:958428346428059648>","<:sage:958428493211902003>","<:skye:958428627517730876>","<:sova:958429598989811812>","<:viper:958429995989086238>","<:yoru:958430128977895504>", "<:atk:960403431837802496>","<:def:960367760574128151>"]
 
 @client.event
 async def on_ready():
@@ -67,17 +68,17 @@ async def on_message(message):
         defnum = []
         emotesatt = []
         emotesdef = []
-        response = emotes[18] + "   " + emotes[19] + "\n"
+        response = emotes[19] + "   " + emotes[20] + "\n"
         i = 0
         while i < attside or i < defside:
-          num = random.randint(0,17)
+          num = random.randint(0,18)
           res1 = ""
           res2 = ""
           if i < attside:
             repeat = True
             while repeat:
               if num in attnum:
-                num = random.randint(0,17)
+                num = random.randint(0,18)
               else:
                 break
             emotesatt.append(emotes[num])
@@ -87,10 +88,10 @@ async def on_message(message):
             res1 = "                "
           if i < defside:
             repeat = True
-            num = random.randint(0,17)
+            num = random.randint(0,18)
             while repeat:
               if num in defnum:
-               num = random.randint(0,17)
+               num = random.randint(0,18)
               else: 
                break
             emotesdef.append(emotes[num])
@@ -115,10 +116,10 @@ async def on_message(message):
         repeat = True
         if players>=2 and players<=5:
           for i in range(players):
-            num = random.randint(0,17)
+            num = random.randint(0,18)
             while repeat:
               if num in currentplay:
-                num = random.randint(0,17)
+                num = random.randint(0,18)
               else:
                 break
             res = emotes[num] + "\n"
@@ -132,7 +133,7 @@ async def on_message(message):
         print("Error")
     else:
       print("Random Agent")
-      response = emotes[random.randint(0,17)]
+      response = emotes[random.randint(0,18)]
       await message.channel.send(response)
 
   if message.content.startswith('$randomteam'):
